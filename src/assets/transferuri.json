@@ -1,0 +1,20 @@
+[
+    {
+        "nume": "Xulescu",
+        "partidSursa": "PSD",
+        "partidDestinatie": "PNL",
+        "motiv": "nostalgic USL"
+    },
+    {
+        "nume": "Yulescu",
+        "partidSursa": "PNL",
+        "partidDestinatie": "PSD",
+        "motiv": "nostalgic USL"
+    },
+    {
+        "nume": "Zulescu",
+        "partidSursa": "PSD",
+        "partidDestinatie": "PNL",
+        "motiv": "nostalgic USL"
+    }
+]

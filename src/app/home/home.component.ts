@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Transfer } from '../models/transfer';
 
 @Component({
@@ -10,12 +11,16 @@ export class HomeComponent implements OnInit {
 
   transfers: Transfer[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.transfers.push(new Transfer('Xulescu', 'PSD', 'PNL', 'nostalgic USL'));
-    this.transfers.push(new Transfer('Yulescu', 'PNL', 'PSD', 'nostalgic USL'));
-    this.transfers.push(new Transfer('Zulescu', 'PSD', 'PNL', 'nostalgic USL'));
+    const httpHeaders = new HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    this.http.get('assets/transferuri.json', { headers: httpHeaders }).subscribe((response: Transfer[]) => {
+      this.transfers = response;
+    })
   }
-
 }
