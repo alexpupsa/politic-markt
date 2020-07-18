@@ -1,1 +1,38 @@
-<p>home works!</p>
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <p-table [value]="transfers" [paginator]="false" [autoLayout]="true">
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="text-align-center">
+            Nume
+          </th>
+          <th class="text-align-center">
+            Partid inițial
+          </th>
+          <th class="text-align-center">
+            Partid transferat
+          </th>
+          <th class="text-align-center">
+            Motiv
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-transfer>
+        <tr>
+          <td class="text-align-center">
+            {{transfer.nume}}
+          </td>
+          <td class="text-align-center">
+            <span [innerHTML]="transfer.partidSursa | logopartid"></span>
+          </td>
+          <td class="text-align-center">
+            <span [innerHTML]="transfer.partidDestinatie | logopartid"></span>
+          </td>
+          <td class="text-align-center">
+            {{transfer.motiv}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
